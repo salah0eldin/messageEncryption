@@ -1,0 +1,52 @@
+.cont {
+    box-shadow: 0 0 10px black;
+    margin-top:40vh;
+    transform: translateY(-50%);
+    width:85%;
+}
+
+.pic , .tool {
+    padding:10px;
+    /* border: 1px solid black; */
+}
+
+.picbox {
+    width:200px;
+    height: 200px;
+    display: inline-block;
+    border: 1px solid gray;
+    background-color: lightgrey;
+    color: white;
+    font-size: 100px;
+    vertical-align: middle;
+}
+
+.picbox:hover{
+    cursor: pointer;
+    background-color: rgb(136, 134, 134);
+}
+
+button{
+    margin:10px;
+}
+
+.textbox {
+    resize: none;
+    overflow: hidden;
+    width:80%;
+    border-radius: 5px;
+    border: 1px solid gray;
+    height: fit-content;
+}
+
+/* a.button {
+    display: block;
+    font-family: 'Helvetica Neue', Helvetica, Arial, serif;
+    padding-right: 5px;
+    height: 30px;
+    padding-left: 11px;
+    font-size: 11px;
+    background: transparent url(../images/main-bar.png) 0 0 no-repeat;
+    border: 2px solid;
+    border-radius: 25px;
+} */
