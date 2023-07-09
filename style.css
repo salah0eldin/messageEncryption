@@ -11,9 +11,8 @@
 }
 
 .picbox {
-   /* width:200px;
-    height: 200px;*/
-    padding:100px;
+    width:200px;
+    height: 200px;
     display: inline-block;
     border: 1px solid gray;
     background-color: lightgrey;
