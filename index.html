@@ -11,6 +11,9 @@
 
 <body>
     <div class="cont rounded-3 p-3 container">
+        <div class="logodiv align-baseline">
+            <img src="logo.jpeg" class="img-fluid rounded-circle" alt="logo">
+        </div>
         <div class="row align-items-center text-center">
             <div class="pic col-12 col-lg-5">
                 <div class="container">
@@ -18,7 +21,7 @@
                         <div class="col-12">
                             <div class="picbox rounded-2 mb-4" id="previewContainer"
                                 onclick="document.getElementById('fileInput').click()">
-                                <p style="display: inline-block; vertical-align: middle;">+</p>
+                                <p style="display: inline; vertical-align: middle;">+</p>
                             </div>
                         </div>
                         <div class="picbuttons col-12">
@@ -46,92 +49,11 @@
             </div>
         </div>
     </div>
-    <!-- <a href="javascript: encrypt()" class="button">Write message into image</a>
-    <a href="javascript: decrypt()" class="button">read message from image</a> -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
-        crossorigin="anonymous"></script>
+        crossorigin="anonymous"></script> -->
     <script src="cryptostego.min.js"></script>
-    <script>
-        const textarea = document.getElementById("textt");
-        var selectedImage;
-        var imagePreview = document.createElement('img');
-
-        function handleFileSelect(event) {
-            var file = event.target.files[0];
-
-            if (file) {
-                var reader = new FileReader();
-                reader.onload = function (event) {
-                    imagePreview.classList.add('preview');
-                    imagePreview.src = event.target.result;
-                    selectedImage = event.target.result;
-                    var previewContainer = document.getElementById('previewContainer');
-                    previewContainer.innerHTML = '';
-                    previewContainer.appendChild(imagePreview);
-                    imagePreview.addEventListener('load', function () {
-                        if (imagePreview.naturalWidth >= imagePreview.naturalHeight) {
-                            imagePreview.style.width = '100%';
-                            imagePreview.style.height = 'auto';
-                        } else {
-                            imagePreview.style.width = 'auto';
-                            imagePreview.style.height = '100%';
-                        }
-                    });
-                };
-
-                reader.readAsDataURL(file);
-            }
-        }
-
-        function downloadImage() {
-            if (!selectedImage) {
-                alert('No image selected.');
-                return;
-            }
-
-            var downloadLink = document.createElement('a');
-            downloadLink.href = selectedImage;
-            downloadLink.download = 'image.png';
-            downloadLink.target = '_blank';
-            downloadLink.click();
-        }
-
-        function encrypt() {
-            function writem() {
-                let message = textarea.value;
-                var t=writeMsgToCanvas('canvas', message, '', 0);
-                if (t==true) {
-                    var myCanvas = document.getElementById("canvas");
-                    selectedImage = myCanvas.toDataURL("image/png");
-                }
-            }
-            loadIMGtoCanvas('fileInput', 'canvas', writem, 500);
-        }
-
-        function decrypt() {
-            function readm() {
-                let t = readMsgFromCanvas('canvas', '', 0);
-                if (t != null) {
-                    // t = t.split('&').join('&amp;');
-                    // t = t.split(' ').join('&nbsp;');
-                    // t = t.split('<').join('&lt;');
-                    // t = t.split('>').join('&gt;');
-                    // t = t.replace(/(?:\r\n|\r|\n)/g, '<br />');
-                    textarea.value = t;
-                }
-                else
-                    textarea.value = 'ERROR REAVEALING MESSAGE!';
-            }
-            loadIMGtoCanvas('fileInput', 'canvas', readm);
-        }
-
-        function autoExpand(textarea) {
-            textarea.style.height = 'auto'; // Reset the height to auto
-            textarea.style.height = textarea.scrollHeight + 'px'; // Set the height to match the scrollHeight
-        }
-
-    </script>
+    <script src="script.js"></script>
 </body>
 
 </html>
